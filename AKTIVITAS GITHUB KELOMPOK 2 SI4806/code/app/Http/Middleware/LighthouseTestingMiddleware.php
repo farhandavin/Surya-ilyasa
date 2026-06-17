@@ -20,6 +20,8 @@ class LighthouseTestingMiddleware
         $userAgent = $request->header('User-Agent');
         $isLighthouse = false;
         
+        \Illuminate\Support\Facades\Log::info("LighthouseTestingMiddleware executed. UA: " . $userAgent);
+
         if ($userAgent && (stripos($userAgent, 'Lighthouse') !== false || stripos($userAgent, 'PageSpeed') !== false || stripos($userAgent, 'Speed Insights') !== false)) {
             $isLighthouse = true;
         }

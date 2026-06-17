@@ -16,7 +16,7 @@ $app = Application::configure(basePath: dirname(__DIR__))
         ]);
 
         $middleware->prependToPriorityList(
-            \Illuminate\Auth\Middleware\Authenticate::class,
+            \Illuminate\Contracts\Auth\Middleware\AuthenticatesRequests::class,
             \App\Http\Middleware\LighthouseTestingMiddleware::class
         );
     })
