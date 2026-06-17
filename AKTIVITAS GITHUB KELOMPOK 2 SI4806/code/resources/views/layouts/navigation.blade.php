@@ -37,7 +37,7 @@
                 <form method="POST" action="{{ route('logout') }}" id="logout-form-desktop">
                     @csrf
                     <button type="submit" onclick="confirmLogout(event, 'logout-form-desktop')" class="btn bg-red-700 text-white hover:bg-red-800 focus:bg-red-800 active:bg-red-900 border-transparent rounded-md text-sm font-medium transition duration-150 ease-in-out px-4 py-2">
-                        {{ __('Logout') }} ({{ Auth::user()->name }})
+                        {{ __('Logout') }} ({{ Auth::user()?->name }})
                     </button>
                 </form>
                 @else
@@ -79,8 +79,8 @@
         <div class="pt-4 pb-4 border-t border-gray-200">
             @auth
             <div class="px-4 mb-3">
-                <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-                <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+                <div class="font-medium text-base text-gray-800">{{ Auth::user()?->name }}</div>
+                <div class="font-medium text-sm text-gray-500">{{ Auth::user()?->email }}</div>
             </div>
 
             <div class="px-4">

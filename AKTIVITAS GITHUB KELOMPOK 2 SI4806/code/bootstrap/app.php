@@ -14,6 +14,11 @@ $app = Application::configure(basePath: dirname(__DIR__))
         $middleware->web(append: [
             \App\Http\Middleware\LighthouseTestingMiddleware::class,
         ]);
+
+        $middleware->prependToPriorityList(
+            \Illuminate\Auth\Middleware\Authenticate::class,
+            \App\Http\Middleware\LighthouseTestingMiddleware::class
+        );
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

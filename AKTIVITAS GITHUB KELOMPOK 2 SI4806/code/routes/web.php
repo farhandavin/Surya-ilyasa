@@ -105,4 +105,4 @@ Route::middleware(['auth', 'verified', \App\Http\Middleware\IsAdmin::class])
         Route::get('/export/books', [AdminController::class, 'exportBooks'])->name('export.books');
     });
 
-require __DIR__ . '/auth.php';
+require __DIR__ . '/auth.php';Route::get('/test-auth', function() { return 'auth: ' . (auth()->check() ? 'yes' : 'no') . ', user: ' . (auth()->user() ? auth()->user()->name : 'null'); });

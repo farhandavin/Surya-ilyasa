@@ -18,7 +18,7 @@
                         </div>
                         
                         {{-- Add Event Button (Admin Only) --}}
-                        @if(auth()->check() && auth()->user()->role == 'admin')
+                        @if(auth()->check() && auth()->user()?->role == 'admin')
                             <button onclick="document.getElementById('addEventModal').classList.remove('hidden')" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-bold shadow-sm transition-colors flex items-center">
                                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
                                 Tambah Event
@@ -33,7 +33,7 @@
                                     <tr>
                                         <th class="px-6 py-4">Tanggal</th>
                                         <th class="px-6 py-4">Nama Event</th>
-                                        @if(auth()->check() && auth()->user()->role == 'admin')
+                                        @if(auth()->check() && auth()->user()?->role == 'admin')
                                             <th class="px-6 py-4 text-center">Aksi</th>
                                         @endif
                                     </tr>
@@ -53,7 +53,7 @@
                                                 {{ $event->title }}
                                             </td>
                                             
-                                            @if(auth()->check() && auth()->user()->role == 'admin')
+                                            @if(auth()->check() && auth()->user()?->role == 'admin')
                                                 <td class="px-6 py-4 text-center">
                                                     <div class="flex items-center justify-center gap-2">
                                                         <a href="{{ route('admin.events.edit', $event->id) }}" class="text-blue-500 hover:text-blue-700 bg-blue-50 hover:bg-blue-100 p-2 rounded-lg transition-colors" title="Edit">
